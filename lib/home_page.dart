@@ -19,12 +19,12 @@ class _HomePageState extends State<HomePage> {
           expandedHeight: 50,
           centerTitle: true,
           leading: IconButton(
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
             onPressed: () {},
           ),
         ),
         SliverGrid(
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
