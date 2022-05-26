@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_rpg/user/components/character_tab.dart';
-import 'package:my_rpg/user/components/items_list_tab.dart';
+import 'package:my_rpg/user/components/character_attributes_tab.dart';
 import 'package:my_rpg/user/components/skills_list_tab.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -22,21 +23,21 @@ class _HomePageState extends State<HomePage> {
           bottom: const TabBar(
             tabs: <Widget>[
               Tab(
-                icon: Icon(Icons.emoji_people),
+                icon: FaIcon(FontAwesomeIcons.userShield),
               ),
               Tab(
-                icon: Icon(Icons.flash_on),
+                icon: FaIcon(FontAwesomeIcons.idCard),
               ),
               Tab(
-                icon: Icon(Icons.shield),
+                icon: FaIcon(FontAwesomeIcons.wandSparkles),
               ),
             ],
           ),
         ),
         body: const TabBarView(
           children: <Widget>[
+            CharacterAttributesTab(),
             CharacterTab(),
-            SkillsListTab(),
             ItemsListTab(),
           ],
         ),
