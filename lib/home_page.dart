@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          elevation: 6.0,
           title: const Text('Unitins My RPG'),
           bottom: const TabBar(
             tabs: <Widget>[

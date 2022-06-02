@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_rpg/home_page.dart';
 
-
 void main() => runApp(const UnitinsMyRpg());
 
 class UnitinsMyRpg extends StatelessWidget {
