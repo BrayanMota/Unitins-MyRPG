@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:my_rpg/utils/widget.dart';
 
-class ListCharacters extends StatefulWidget {
-  const ListCharacters({Key? key}) : super(key: key);
+import '../../../utils/widget.dart';
+import '../5edition/pages/character_features.dart';
+
+class ListEditions extends StatefulWidget {
+  const ListEditions({Key? key}) : super(key: key);
 
   @override
-  State<ListCharacters> createState() => _ListCharactersState();
+  State<ListEditions> createState() => _ListEditionsState();
 }
 
-class _ListCharactersState extends State<ListCharacters> {
+class _ListEditionsState extends State<ListEditions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,25 +22,16 @@ class _ListCharactersState extends State<ListCharacters> {
     return CustomScrollView(
       slivers: [
         CustomSliverAppBar(
-          title: 'Characters',
+          title: 'Sistemas',
           centerTittle: true,
         ),
         SliverPadding(padding: EdgeInsets.only(top: 8)),
-        // _listCharacters(),
-        _gridCharacters()
+        _gridSystems()
       ],
     );
   }
 
-  Widget _listCharacters() {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate((context, index) {
-        return null;
-      }, childCount: 10),
-    );
-  }
-
-  Widget _gridCharacters() {
+  Widget _gridSystems() {
     return SliverGrid(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         mainAxisSpacing: 5,
@@ -50,11 +43,17 @@ class _ListCharactersState extends State<ListCharacters> {
           elevation: 3,
           child: ListTile(
             leading: Icon(Icons.person),
-            title: Text('Character $index'),
-            subtitle: Text('Dungeons and Dragons'),
+            title: Text('${index + 1}° edition'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CharacterFeatures()),
+              );
+            },
           ),
         );
-      }, childCount: 100),
+      }, childCount: 5),
     );
   }
 }
