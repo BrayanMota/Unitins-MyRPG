@@ -11,7 +11,7 @@ class _BasicAttributesState extends State<BasicAttributes> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 8.0,
       ),
       child: Column(
@@ -19,7 +19,7 @@ class _BasicAttributesState extends State<BasicAttributes> {
           Wrap(
             spacing: 16.0,
             alignment: WrapAlignment.center,
-            children: <Widget>[
+            children: const <Widget>[
               Chip(
                 backgroundColor: Colors.blueAccent,
                 label: Text(
@@ -33,7 +33,7 @@ class _BasicAttributesState extends State<BasicAttributes> {
               Chip(
                 backgroundColor: Colors.blueAccent,
                 label: Text(
-                  '+15 Destreza',
+                  '+8 Destreza',
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -42,7 +42,7 @@ class _BasicAttributesState extends State<BasicAttributes> {
               Chip(
                 backgroundColor: Colors.blueAccent,
                 label: Text(
-                  '+12 Constituição',
+                  '+1 Constituição',
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -51,7 +51,7 @@ class _BasicAttributesState extends State<BasicAttributes> {
               Chip(
                 backgroundColor: Colors.blueAccent,
                 label: Text(
-                  '+8 Inteligêcia',
+                  '+4 Inteligêcia',
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -60,7 +60,7 @@ class _BasicAttributesState extends State<BasicAttributes> {
               Chip(
                 backgroundColor: Colors.blueAccent,
                 label: Text(
-                  '+16 Sabedoria',
+                  '+3 Sabedoria',
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -69,7 +69,7 @@ class _BasicAttributesState extends State<BasicAttributes> {
               Chip(
                 backgroundColor: Colors.blueAccent,
                 label: Text(
-                  '+9 Carisma',
+                  '+2 Carisma',
                   style: TextStyle(
                     color: Colors.white,
                   ),
