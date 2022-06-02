@@ -20,12 +20,28 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
     return CustomScrollView(
       slivers: [
         CustomSliverAppBar(
-          title: 'Sistemas',
+          title: 'Características',
           centerTittle: true,
         ),
         SliverPadding(padding: EdgeInsets.only(top: 8)),
         _gridSystems()
       ],
+    );
+  }
+
+  Widget _features() {
+    return SliverList(
+      delegate: SliverChildListDelegate(
+        [
+          Text('Classe'),
+          Text('Nível'),
+          Text('Raça'),
+          Text('Sub-Raça'),
+          Text('Antecendente'),
+          Text('Tendência'),
+          TextFormField(),
+        ],
+      ),
     );
   }
 
