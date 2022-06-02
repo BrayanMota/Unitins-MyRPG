@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_rpg/home_page.dart';
-
+import 'package:my_rpg/user/pages/list.dart';
 
 void main() => runApp(const UnitinsMyRpg());
 
@@ -23,6 +22,6 @@ class UnitinsMyRpgStatelessWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomePage();
+    return const ListCharacters();
   }
 }

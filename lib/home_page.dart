@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_rpg/user/components/character_tab.dart';
-import 'package:my_rpg/user/components/character_attributes_tab.dart';
 import 'package:my_rpg/user/components/skills_list_tab.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'token/dungeons_and_dragons/5edition/pages/character_attributes_tab.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
