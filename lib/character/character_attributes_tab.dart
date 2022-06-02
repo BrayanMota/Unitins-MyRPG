@@ -10,8 +10,14 @@ class CharacterAttributesTab extends StatefulWidget {
 class _CharacterAttributesTabState extends State<CharacterAttributesTab> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Atributos e Equipamentos do personagem."),
+    return ListView(
+      children: const <Widget>[
+        Card(
+          child: ListTile(
+            title: Text('Atributos e equipamentos do personagem'),
+          ),
+        ),
+      ],
     );
   }
 }
