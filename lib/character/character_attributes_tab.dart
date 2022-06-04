@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_rpg/character/shared/basic_attributes.dart';
+import 'package:my_rpg/character/shared/attribute_model.dart';
+import 'package:my_rpg/character/shared/basic_attribute.dart';
 
 class CharacterAttributesTab extends StatefulWidget {
   const CharacterAttributesTab({Key? key}) : super(key: key);
@@ -9,19 +10,8 @@ class CharacterAttributesTab extends StatefulWidget {
 }
 
 class _CharacterAttributesTabState extends State<CharacterAttributesTab> {
-  Future<void> _askedToLead() async {
-    switch (await showDialog<BasicAttributes>(
-        context: context,
-        builder: (BuildContext context) {
-          return const SimpleDialog(
-            title: Text('Força'),
-            children: <Widget>[
-              Text('Teste')
-            ]
-          );
-        }
-    )) { }
-  }
+  final AttributeModel _attributeModel01 = AttributeModel('Força', 15, 3);
+  final AttributeModel _attributeModel02 = AttributeModel('Destreza', 8, 1);
 
   @override
   Widget build(BuildContext context) {
@@ -32,46 +22,9 @@ class _CharacterAttributesTabState extends State<CharacterAttributesTab> {
       mainAxisSpacing: 10,
       crossAxisCount: 2,
       children: <Widget>[
-        Container(
-          color: Colors.transparent,
-          child: Card(
-            child: InkWell(
-              splashColor: Colors.black45,
-              onTap: _askedToLead,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const <Widget>[
-                  Text(
-                    'Força',
-                    style: TextStyle(
-                      fontSize: 28.0,
-                      fontStyle: FontStyle.normal,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                    '+5',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      fontStyle: FontStyle.italic,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                    '15',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontStyle: FontStyle.normal,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+        BasicAttribute(attributeModel: _attributeModel01),
+        BasicAttribute(attributeModel: _attributeModel02),
       ],
     );
   }
 }
-
