@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_rpg/character/shared/attribute_model.dart';
 
 class BasicAttribute extends StatefulWidget {
-  BasicAttribute({Key? key, required this.attributeModel }) : super(key: key);
+  BasicAttribute({Key? key, required this.attributeModel}) : super(key: key);
 
   AttributeModel attributeModel;
 
@@ -55,16 +55,62 @@ class _BasicAttributeState extends State<BasicAttribute> {
   }
 
   Future<void> _loadAttributeDetails() async {
+    String _currentAttributeValue = widget.attributeModel.value.toString();
+
+    void _incrementAttributeValue() {
+      setState(() {
+        widget.attributeModel.value++;
+        _currentAttributeValue = widget.attributeModel.value.toString();
+      });
+    }
+
+    void _decrementAttributeValue() {
+      setState(() {
+        widget.attributeModel.value--;
+        _currentAttributeValue = widget.attributeModel.value.toString();
+      });
+    }
+
     switch (await showDialog<BasicAttribute>(
-        context: context,
-        builder: (BuildContext context) {
-          return SimpleDialog(
-              title: Text(widget.attributeModel.name),
-              children: const <Widget>[
-                Text('Teste')
-              ]
-          );
-        }
-    )) { }
+      context: context,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+            title: Text(
+              widget.attributeModel.name,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 28.0,
+                fontStyle: FontStyle.normal,
+                color: Colors.black,
+              ),
+            ),
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  FloatingActionButton(
+                    child: const Icon(Icons.remove),
+                    backgroundColor: Colors.blueAccent,
+                    onPressed: _decrementAttributeValue,
+                  ),
+                  Text(
+                    _currentAttributeValue,
+                    style: const TextStyle(
+                      fontSize: 24.0,
+                      fontStyle: FontStyle.normal,
+                      color: Colors.black,
+                    ),
+                  ),
+                  FloatingActionButton(
+                    child: const Icon(Icons.add),
+                    backgroundColor: Colors.blueAccent,
+                    onPressed: _incrementAttributeValue,
+                  )
+                ],
+              )
+            ]);
+      },
+    )) {
+    }
   }
 }
