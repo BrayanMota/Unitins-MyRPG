@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_rpg/utils/widget.dart';
+import 'package:my_rpg/mock/classes.dart';
 
 class CharacterFeatures extends StatefulWidget {
   const CharacterFeatures({Key? key}) : super(key: key);
@@ -9,6 +10,9 @@ class CharacterFeatures extends StatefulWidget {
 }
 
 class _CharacterFeaturesState extends State<CharacterFeatures> {
+  String dropdownValue = 'Classes';
+  final lista = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +28,8 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
           centerTittle: true,
         ),
         SliverPadding(padding: EdgeInsets.only(top: 8)),
-        _gridSystems()
+        // _features(),
+        _list(),
       ],
     );
   }
@@ -33,34 +38,94 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
     return SliverList(
       delegate: SliverChildListDelegate(
         [
-          Text('Classe'),
-          Text('Nível'),
-          Text('Raça'),
-          Text('Sub-Raça'),
-          Text('Antecendente'),
-          Text('Tendência'),
-          TextFormField(),
+          DropdownButtonFormField(
+            items: lista.map(buildMenuItem).toList(),
+            onChanged: (dropdownValue) {
+              setState(
+                () {
+                  this.dropdownValue = dropdownValue;
+                },
+              );
+            },
+          ),
+
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: 'Nível',
+              labelStyle: TextStyle(fontSize: 16),
+            ),
+          ),
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: 'Raça',
+              labelStyle: TextStyle(fontSize: 16),
+            ),
+          ),
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: 'Sub-Raça',
+              labelStyle: TextStyle(fontSize: 16),
+            ),
+          ),
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: 'Antecendente',
+              labelStyle: TextStyle(fontSize: 16),
+            ),
+          ),
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: 'Tendência',
+              labelStyle: TextStyle(fontSize: 16),
+            ),
+          ),
+          // _dropdown(),
         ],
       ),
     );
   }
 
-  Widget _gridSystems() {
-    return SliverGrid(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        mainAxisSpacing: 5,
-        crossAxisCount: 1,
-        mainAxisExtent: 70,
+  DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
+        value: item,
+        child: Text(item),
+      );
+
+  Widget _dropdown() {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_downward),
+      elevation: 16,
+      style: const TextStyle(color: Colors.deepPurple),
+      underline: Container(
+        height: 2,
+        color: Colors.deepPurpleAccent,
       ),
+      onChanged: (String? newValue) {
+        setState(() {
+          dropdownValue = newValue!;
+        });
+      },
+      items: <String>['One', 'Two', 'Free', 'Four']
+          .map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }
+
+  Widget _list() {
+    return SliverList(
       delegate: SliverChildBuilderDelegate((context, index) {
         return Card(
           elevation: 3,
           child: ListTile(
             leading: Icon(Icons.person),
-            title: Text('${index + 1}° edition'),
+            title: Text('${classes[index]['name']}'),
           ),
         );
-      }, childCount: 5),
+      }, childCount: classes.length),
     );
   }
 }
