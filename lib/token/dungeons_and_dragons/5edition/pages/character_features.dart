@@ -27,9 +27,11 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
           title: 'Características',
           centerTittle: true,
         ),
-        SliverPadding(padding: EdgeInsets.only(top: 8)),
-        // _features(),
-        _list(),
+        SliverPadding(
+          padding: EdgeInsets.all(20),
+          sliver: _features(),
+        ),
+        // _list(),
       ],
     );
   }
@@ -38,12 +40,12 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
     return SliverList(
       delegate: SliverChildListDelegate(
         [
-          DropdownButtonFormField(
-            items: lista.map(buildMenuItem).toList(),
+          DropdownButtonFormField<String>(
+            items: classes.map(buildMenuItem).toList(),
             onChanged: (dropdownValue) {
               setState(
                 () {
-                  this.dropdownValue = dropdownValue;
+                  this.dropdownValue = dropdownValue!;
                 },
               );
             },
