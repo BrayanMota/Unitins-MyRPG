@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:my_rpg/utils/widget.dart';
 import 'package:my_rpg/mock/classes.dart';
@@ -11,7 +13,7 @@ class CharacterFeatures extends StatefulWidget {
 
 class _CharacterFeaturesState extends State<CharacterFeatures> {
   String dropdownValue = 'Classes';
-  final lista = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco'];
+  final list = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco'];
 
   @override
   Widget build(BuildContext context) {
@@ -40,15 +42,23 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
     return SliverList(
       delegate: SliverChildListDelegate(
         [
-          DropdownButtonFormField<String>(
-            items: classes.map(buildMenuItem).toList(),
-            onChanged: (dropdownValue) {
-              setState(
-                () {
-                  this.dropdownValue = dropdownValue!;
-                },
-              );
-            },
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: 'Nome do personagem',
+              labelStyle: TextStyle(fontSize: 16),
+            ),
+          ),
+          DropdownButtonHideUnderline(
+            child: DropdownButton<String>(
+              items: classes.map(buildMenuItem).toList(),
+              onChanged: (dropdownValue) {
+                setState(
+                  () {
+                    this.dropdownValue = dropdownValue!;
+                  },
+                );
+              },
+            ),
           ),
 
           TextFormField(

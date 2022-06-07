@@ -15,7 +15,7 @@ class CustomSliverAppBar extends StatelessWidget {
     return SliverAppBar(
       title: Text(title),
       centerTitle: centerTittle,
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.black87,
     );
   }
 }

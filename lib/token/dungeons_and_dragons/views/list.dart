@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/widget.dart';
-import '../5edition/pages/character_features.dart';
+import '../5edition/views/character_features.dart';
 
 class ListEditions extends StatefulWidget {
   const ListEditions({Key? key}) : super(key: key);

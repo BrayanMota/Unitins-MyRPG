@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_rpg/token/dungeons_and_dragons/5edition/pages/character_features.dart';
-import 'package:my_rpg/token/pages/list.dart';
-import 'package:my_rpg/user/pages/list.dart';
+import 'package:my_rpg/token/dungeons_and_dragons/5edition/views/character_features.dart';
+import 'package:my_rpg/token/views/list.dart';
+import 'package:my_rpg/user/views/list.dart';
 
 void main() => runApp(const UnitinsMyRpg());
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'token/dungeons_and_dragons/5edition/pages/character_attributes_tab.dart';
-import 'token/dungeons_and_dragons/5edition/pages/character_tab.dart';
-import 'token/dungeons_and_dragons/5edition/pages/skills_list_tab.dart';
+import 'token/dungeons_and_dragons/5edition/views/character_attributes_tab.dart';
+import 'token/dungeons_and_dragons/5edition/views/character_tab.dart';
+import 'token/dungeons_and_dragons/5edition/views/skills_list_tab.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

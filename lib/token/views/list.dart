@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../utils/widget.dart';
-import '../dungeons_and_dragons/pages/list.dart';
+import '../dungeons_and_dragons/views/list.dart';
 
 class ListSystems extends StatefulWidget {
   const ListSystems({Key? key}) : super(key: key);
