@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:my_rpg/utils/widget.dart';
 import 'package:my_rpg/mock/classes.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 
 class CharacterFeatures extends StatefulWidget {
   const CharacterFeatures({Key? key}) : super(key: key);
@@ -13,7 +14,6 @@ class CharacterFeatures extends StatefulWidget {
 
 class _CharacterFeaturesState extends State<CharacterFeatures> {
   String dropdownValue = 'Classes';
-  final list = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco'];
 
   @override
   Widget build(BuildContext context) {
@@ -48,19 +48,25 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
               labelStyle: TextStyle(fontSize: 16),
             ),
           ),
-          DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-              items: classes.map(buildMenuItem).toList(),
-              onChanged: (dropdownValue) {
-                setState(
-                  () {
-                    this.dropdownValue = dropdownValue!;
-                  },
-                );
-              },
+          // DropdownButtonHideUnderline(
+          //   child: DropdownButton<String>(
+          //     items: classes.map(buildMenuItem).toList(),
+          //     onChanged: (dropdownValue) {
+          //       setState(
+          //         () {
+          //           this.dropdownValue = dropdownValue!;
+          //         },
+          //       );
+          //     },
+          //   ),
+          // ),
+          DropdownSearch<String>(
+            items: classes,
+            popupProps: PopupPropsMultiSelection.menu(
+              showSelectedItems: true,
             ),
+            onChanged: print,
           ),
-
           TextFormField(
             decoration: InputDecoration(
               labelText: 'Nível',
@@ -134,7 +140,7 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
           elevation: 3,
           child: ListTile(
             leading: Icon(Icons.person),
-            title: Text('${classes[index]['name']}'),
+            title: Text(classes[index]),
           ),
         );
       }, childCount: classes.length),
