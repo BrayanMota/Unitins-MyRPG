@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_rpg/character/shared/attribute_model.dart';
+import 'package:my_rpg/character/model/attribute_model.dart';
 
 class BasicAttribute extends StatefulWidget {
   BasicAttribute({Key? key, required this.attributeModel}) : super(key: key);
@@ -11,6 +11,14 @@ class BasicAttribute extends StatefulWidget {
 }
 
 class _BasicAttributeState extends State<BasicAttribute> {
+  late ValueNotifier<int> _currentAttributeValue;
+
+  @override
+  initState() {
+    super.initState();
+    _currentAttributeValue = ValueNotifier<int>(widget.attributeModel.value);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,20 +40,15 @@ class _BasicAttributeState extends State<BasicAttribute> {
                 ),
               ),
               Text(
-                "+ ${widget.attributeModel.bonus.toString()}",
+                "+ ${widget.attributeModel.bonus}",
                 style: const TextStyle(
                   fontSize: 24.0,
                   fontStyle: FontStyle.italic,
                   color: Colors.black,
                 ),
               ),
-              Text(
-                widget.attributeModel.value.toString(),
-                style: const TextStyle(
-                  fontSize: 20.0,
-                  fontStyle: FontStyle.normal,
-                  color: Colors.black,
-                ),
+              AttributeDetails(
+                counterValueNotifier: _currentAttributeValue,
               ),
             ],
           ),
@@ -55,19 +58,15 @@ class _BasicAttributeState extends State<BasicAttribute> {
   }
 
   Future<void> _loadAttributeDetails() async {
-    String _currentAttributeValue = widget.attributeModel.value.toString();
-
     void _incrementAttributeValue() {
       setState(() {
-        widget.attributeModel.value++;
-        _currentAttributeValue = widget.attributeModel.value.toString();
+        _currentAttributeValue.value++;
       });
     }
 
     void _decrementAttributeValue() {
       setState(() {
-        widget.attributeModel.value--;
-        _currentAttributeValue = widget.attributeModel.value.toString();
+        _currentAttributeValue.value--;
       });
     }
 
@@ -93,13 +92,8 @@ class _BasicAttributeState extends State<BasicAttribute> {
                     backgroundColor: Colors.blueAccent,
                     onPressed: _decrementAttributeValue,
                   ),
-                  Text(
-                    _currentAttributeValue,
-                    style: const TextStyle(
-                      fontSize: 24.0,
-                      fontStyle: FontStyle.normal,
-                      color: Colors.black,
-                    ),
+                  AttributeDetails(
+                    counterValueNotifier: _currentAttributeValue,
                   ),
                   FloatingActionButton(
                     child: const Icon(Icons.add),
@@ -107,10 +101,34 @@ class _BasicAttributeState extends State<BasicAttribute> {
                     onPressed: _incrementAttributeValue,
                   )
                 ],
-              )
+              ),
             ]);
       },
     )) {
     }
+  }
+}
+
+class AttributeDetails extends StatelessWidget {
+  const AttributeDetails({Key? key, required this.counterValueNotifier});
+
+  final ValueNotifier<int> counterValueNotifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      // [AnimatedBuilder] accepts any [Listenable] subtype.
+      animation: counterValueNotifier,
+      builder: (BuildContext context, Widget? child) {
+        return Text(
+          '${counterValueNotifier.value}',
+          style: const TextStyle(
+            fontSize: 24.0,
+            fontStyle: FontStyle.normal,
+            color: Colors.black,
+          ),
+        );
+      },
+    );
   }
 }
