@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_rpg/character/model/attribute_model.dart';
+import 'package:my_rpg/character/service/attribute_service.dart';
 
 class BasicAttribute extends StatefulWidget {
   BasicAttribute({Key? key, required this.attributeModel}) : super(key: key);
@@ -41,15 +42,8 @@ class _BasicAttributeState extends State<BasicAttribute> {
                   color: Colors.black,
                 ),
               ),
-              Text(
-                "+ ${widget.attributeModel.bonus}",
-                style: const TextStyle(
-                  fontSize: 24.0,
-                  fontStyle: FontStyle.italic,
-                  color: Colors.black,
-                ),
-              ),
-              AttributeDetails(
+              AttributeBonus(counterValueNotifier: _currentAttributeValue),
+              AttributeValue(
                 counterValueNotifier: _currentAttributeValue,
               ),
             ],
@@ -62,13 +56,17 @@ class _BasicAttributeState extends State<BasicAttribute> {
   Future<void> _loadAttributeDetails() async {
     void _incrementAttributeValue() {
       setState(() {
-        _currentAttributeValue.value++;
+        if (_currentAttributeValue.value < 30) {
+          _currentAttributeValue.value++;
+        }
       });
     }
 
     void _decrementAttributeValue() {
       setState(() {
-        _currentAttributeValue.value--;
+        if (_currentAttributeValue.value > 1) {
+          _currentAttributeValue.value--;
+        }
       });
     }
 
@@ -94,7 +92,7 @@ class _BasicAttributeState extends State<BasicAttribute> {
                     backgroundColor: Colors.blueAccent,
                     onPressed: _decrementAttributeValue,
                   ),
-                  AttributeDetails(
+                  AttributeValue(
                     counterValueNotifier: _currentAttributeValue,
                   ),
                   FloatingActionButton(
@@ -111,8 +109,8 @@ class _BasicAttributeState extends State<BasicAttribute> {
   }
 }
 
-class AttributeDetails extends StatelessWidget {
-  const AttributeDetails({Key? key, required this.counterValueNotifier});
+class AttributeValue extends StatelessWidget {
+  const AttributeValue({Key? key, required this.counterValueNotifier});
 
   final ValueNotifier<int> counterValueNotifier;
 
@@ -124,6 +122,30 @@ class AttributeDetails extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return Text(
           '${counterValueNotifier.value}',
+          style: const TextStyle(
+            fontSize: 24.0,
+            fontStyle: FontStyle.normal,
+            color: Colors.black,
+          ),
+        );
+      },
+    );
+  }
+}
+
+class AttributeBonus extends StatelessWidget {
+  const AttributeBonus({Key? key, required this.counterValueNotifier});
+
+  final ValueNotifier<int> counterValueNotifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      // [AnimatedBuilder] accepts any [Listenable] subtype.
+      animation: counterValueNotifier,
+      builder: (BuildContext context, Widget? child) {
+        return Text(
+          AttributeService.calculateBonus(counterValueNotifier.value),
           style: const TextStyle(
             fontSize: 24.0,
             fontStyle: FontStyle.normal,
