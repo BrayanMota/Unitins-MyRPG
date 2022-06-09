@@ -1,6 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:my_rpg/mock/alignments.dart';
+import 'package:my_rpg/mock/backgrounds.dart';
+import 'package:my_rpg/mock/races.dart';
 import 'package:my_rpg/utils/widget.dart';
 import 'package:my_rpg/mock/classes.dart';
 import 'package:dropdown_search/dropdown_search.dart';
@@ -48,18 +51,6 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
               labelStyle: TextStyle(fontSize: 16),
             ),
           ),
-          // DropdownButtonHideUnderline(
-          //   child: DropdownButton<String>(
-          //     items: classes.map(buildMenuItem).toList(),
-          //     onChanged: (dropdownValue) {
-          //       setState(
-          //         () {
-          //           this.dropdownValue = dropdownValue!;
-          //         },
-          //       );
-          //     },
-          //   ),
-          // ),
           DropdownSearch<String>(
             items: classes,
             popupProps: PopupPropsMultiSelection.menu(
@@ -73,11 +64,12 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
               labelStyle: TextStyle(fontSize: 16),
             ),
           ),
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: 'Raça',
-              labelStyle: TextStyle(fontSize: 16),
+          DropdownSearch<String>(
+            items: races,
+            popupProps: PopupPropsMultiSelection.menu(
+              showSelectedItems: true,
             ),
+            onChanged: print,
           ),
           TextFormField(
             decoration: InputDecoration(
@@ -85,17 +77,19 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
               labelStyle: TextStyle(fontSize: 16),
             ),
           ),
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: 'Antecendente',
-              labelStyle: TextStyle(fontSize: 16),
+          DropdownSearch<String>(
+            items: backgrounds,
+            popupProps: PopupPropsMultiSelection.menu(
+              showSelectedItems: true,
             ),
+            onChanged: print,
           ),
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: 'Tendência',
-              labelStyle: TextStyle(fontSize: 16),
+          DropdownSearch<String>(
+            items: alignments,
+            popupProps: PopupPropsMultiSelection.menu(
+              showSelectedItems: true,
             ),
+            onChanged: print,
           ),
           // _dropdown(),
         ],

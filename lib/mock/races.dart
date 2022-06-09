@@ -1,47 +1,91 @@
 final races = [
-  {
-    "index": "dragonborn",
-    "name": "Dragonborn",
-    "url": "/api/races/dragonborn",
-  },
-  {
-    "index": "dwarf",
-    "name": "Dwarf",
-    "url": "/api/races/dwarf",
-  },
-  {
-    "index": "elf",
-    "name": "Elf",
-    "url": "/api/races/elf",
-  },
-  {
-    "index": "gnome",
-    "name": "Gnome",
-    "url": "/api/races/gnome",
-  },
-  {
-    "index": "half-elf",
-    "name": "Half-Elf",
-    "url": "/api/races/half-elf",
-  },
-  {
-    "index": "half-orc",
-    "name": "Half-Orc",
-    "url": "/api/races/half-orc",
-  },
-  {
-    "index": "halfling",
-    "name": "Halfling",
-    "url": "/api/races/halfling",
-  },
-  {
-    "index": "human",
-    "name": "Human",
-    "url": "/api/races/human",
-  },
-  {
-    "index": "tiefling",
-    "name": "Tiefling",
-    "url": "/api/races/tiefling",
-  },
+  'Anão',
+  'Elfo',
+  "Halfling",
+  'Humano',
+  'Draconato',
+  'Gnomo',
+  'Meio-Elfo',
+  'Meio-Orc',
+  "Tiefling",
 ];
+
+final sub_races = {
+  [
+    {
+      'name': 'Anão',
+      'sub_races': [
+        {
+          'name': 'Anão da Colina',
+        },
+        {
+          'name': 'Anão da Montanha',
+        },
+      ]
+    },
+    {
+      'name': 'Elfo',
+      'sub_races': [
+        {
+          'name': 'Alto Elfo',
+        },
+        {
+          'name': 'Elfo da Floresta',
+        },
+        {
+          'name': 'Elfo Noturno',
+        },
+      ]
+    },
+    {
+      'name': 'Halfling',
+      'sub_races': [
+        {
+          'name': 'Pés Leves',
+        },
+        {
+          'name': 'Robusto',
+        },
+      ]
+    },
+    {
+      'name': 'Humano',
+      'sub_races': [
+        {
+          'name': 'Humano Variante',
+        },
+      ]
+    },
+    {
+      'name': 'Draconato',
+    },
+    {
+      'name': 'Gnomo',
+      'sub_races': [
+        {
+          'name': 'Gnomo da Floresta',
+        },
+        {
+          'name': 'Gnomo das Rochas',
+        },
+      ]
+    },
+    {
+      'name': 'Meio-Elfo',
+    },
+    {
+      'name': 'Meio-Orc',
+    },
+    {
+      'name': 'Tiefling',
+      'sub_races': [
+        {
+          'name': 'Infernal',
+        },
+        {
+          'name': 'Abissal',
+        },
+      ]
+    },
+  ]
+};
