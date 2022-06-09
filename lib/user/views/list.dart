@@ -20,8 +20,8 @@ class _ListCharactersState extends State<ListCharacters> {
     return CustomScrollView(
       slivers: [
         CustomSliverAppBar(
-          title: 'Characters',
-          centerTittle: true,
+          textTopSliver: 'Characters',
+          centerTitle: true,
         ),
         SliverPadding(padding: EdgeInsets.only(top: 8)),
         // _listCharacters(),

@@ -22,8 +22,8 @@ class _ListEditionsState extends State<ListEditions> {
     return CustomScrollView(
       slivers: [
         CustomSliverAppBar(
-          title: 'Sistemas',
-          centerTittle: true,
+          textTopSliver: 'Sistemas',
+          centerTitle: true,
         ),
         SliverPadding(padding: EdgeInsets.only(top: 8)),
         _gridSystems()

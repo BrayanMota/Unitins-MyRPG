@@ -22,8 +22,8 @@ class _ListSystemsState extends State<ListSystems> {
     return CustomScrollView(
       slivers: [
         CustomSliverAppBar(
-          title: 'Systems',
-          centerTittle: true,
+          textTopSliver: 'Systems',
+          centerTitle: true,
         ),
         SliverPadding(padding: EdgeInsets.only(top: 8)),
         _gridSystems()
