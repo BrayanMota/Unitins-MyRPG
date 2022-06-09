@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_rpg/character/model/attribute_repository.dart';
 import 'package:my_rpg/character/view/character_tab.dart';
 import 'package:my_rpg/character/view/character_attributes_tab.dart';
 import 'package:my_rpg/character/view/skills_list_tab.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_rpg/character/view_model/attribute_view_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -35,11 +37,11 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: <Widget>[
             CharacterAttributesTab(),
-            CharacterTab(),
-            ItemsListTab(),
+            const CharacterTab(),
+            const ItemsListTab(),
           ],
         ),
       ),
