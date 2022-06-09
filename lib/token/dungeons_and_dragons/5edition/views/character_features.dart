@@ -16,7 +16,7 @@ class CharacterFeatures extends StatefulWidget {
 }
 
 class _CharacterFeaturesState extends State<CharacterFeatures> {
-  String dropdownValue = 'Classes';
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -45,85 +45,79 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
     return SliverList(
       delegate: SliverChildListDelegate(
         [
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: 'Nome do personagem',
-              labelStyle: TextStyle(fontSize: 16),
+          Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Nome do personagem',
+                    labelStyle: TextStyle(fontSize: 16),
+                  ),
+                ),
+                DropdownSearch<String>(
+                  items: classes,
+                  popupProps: PopupPropsMultiSelection.menu(
+                    showSelectedItems: true,
+                  ),
+                  onChanged: print,
+                  validator: (String? item) {
+                    if (item == null)
+                      return "Required field";
+                    else if (item == "Brazil")
+                      return "Invalid item";
+                    else
+                      return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Nível',
+                    labelStyle: TextStyle(fontSize: 16),
+                  ),
+                ),
+                DropdownSearch<String>(
+                  items: races,
+                  popupProps: PopupPropsMultiSelection.menu(
+                    showSelectedItems: true,
+                  ),
+                  onChanged: print,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Sub-Raça',
+                    labelStyle: TextStyle(fontSize: 16),
+                  ),
+                ),
+                DropdownSearch<String>(
+                  items: backgrounds,
+                  popupProps: PopupPropsMultiSelection.menu(
+                    showSelectedItems: true,
+                  ),
+                  onChanged: print,
+                ),
+                DropdownSearch<String>(
+                  items: alignments,
+                  popupProps: PopupPropsMultiSelection.menu(
+                    showSelectedItems: true,
+                  ),
+                  onChanged: print,
+                ),
+                ElevatedButton(
+                  child: Text('Continuar'),
+                  onPressed: () {},
+                )
+              ],
             ),
-          ),
-          DropdownSearch<String>(
-            items: classes,
-            popupProps: PopupPropsMultiSelection.menu(
-              showSelectedItems: true,
-            ),
-            onChanged: print,
-          ),
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: 'Nível',
-              labelStyle: TextStyle(fontSize: 16),
-            ),
-          ),
-          DropdownSearch<String>(
-            items: races,
-            popupProps: PopupPropsMultiSelection.menu(
-              showSelectedItems: true,
-            ),
-            onChanged: print,
-          ),
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: 'Sub-Raça',
-              labelStyle: TextStyle(fontSize: 16),
-            ),
-          ),
-          DropdownSearch<String>(
-            items: backgrounds,
-            popupProps: PopupPropsMultiSelection.menu(
-              showSelectedItems: true,
-            ),
-            onChanged: print,
-          ),
-          DropdownSearch<String>(
-            items: alignments,
-            popupProps: PopupPropsMultiSelection.menu(
-              showSelectedItems: true,
-            ),
-            onChanged: print,
-          ),
-          // _dropdown(),
+          )
         ],
       ),
-    );
-  }
-
-  DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
-        value: item,
-        child: Text(item),
-      );
-
-  Widget _dropdown() {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownValue = newValue!;
-        });
-      },
-      items: <String>['One', 'Two', 'Free', 'Four']
-          .map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
     );
   }
 
