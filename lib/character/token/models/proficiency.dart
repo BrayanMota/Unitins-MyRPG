@@ -1,3 +1,3 @@
 class ProficiencyModel {
-  
+  String name = '';
 }

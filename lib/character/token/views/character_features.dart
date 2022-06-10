@@ -3,6 +3,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_rpg/character/models/character.dart';
+import 'package:my_rpg/character/token/models/token.dart';
 import 'package:my_rpg/mock/alignments.dart';
 import 'package:my_rpg/mock/backgrounds.dart';
 import 'package:my_rpg/mock/races.dart';
@@ -30,6 +32,7 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
   final _backgroundController = TextEditingController();
   final _alignmentController = TextEditingController();
 
+  late CharacterModel characterModel;
   late FeatureModel featureModel;
 
   @override
@@ -186,14 +189,18 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
                       ),
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          featureModel = FeatureModel(
+                          characterModel = CharacterModel(
                             name: _nameController.text,
-                            className: _classController.text,
-                            level: int.parse(_levelController.text),
-                            race: _raceController.text,
-                            subRace: _subRaceController.text,
-                            background: _backgroundController.text,
-                            alignment: _alignmentController.text,
+                            tokenModel: TokenModel(
+                              featureModel: FeatureModel(
+                                className: _classController.text,
+                                level: int.parse(_levelController.text),
+                                race: _raceController.text,
+                                subRace: _subRaceController.text,
+                                background: _backgroundController.text,
+                                alignment: _alignmentController.text,
+                              ),
+                            ),
                           );
                         }
                       },

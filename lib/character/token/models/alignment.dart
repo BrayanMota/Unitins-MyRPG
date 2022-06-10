@@ -1,8 +1,8 @@
-class Alignment {
+class AlignmentModel {
   String name;
   String description;
 
-  Alignment({
+  AlignmentModel({
     required this.name,
     required this.description,
   });

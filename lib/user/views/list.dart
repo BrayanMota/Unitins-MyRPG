@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:my_rpg/character/token/views/character_features.dart';
 import 'package:my_rpg/utils/widget.dart';
 
 class ListCharacters extends StatefulWidget {
@@ -13,6 +16,20 @@ class _ListCharactersState extends State<ListCharacters> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _buildBody(),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CharacterFeatures(),
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 
@@ -20,12 +37,11 @@ class _ListCharactersState extends State<ListCharacters> {
     return CustomScrollView(
       slivers: [
         CustomSliverAppBar(
-          textTopSliver: 'Characters',
+          textTopSliver: 'Personagens',
           centerTitle: true,
         ),
         SliverPadding(padding: EdgeInsets.only(top: 8)),
-        // _listCharacters(),
-        _gridCharacters()
+        _listCharacters(),
       ],
     );
   }
@@ -33,25 +49,17 @@ class _ListCharactersState extends State<ListCharacters> {
   Widget _listCharacters() {
     return SliverList(
       delegate: SliverChildBuilderDelegate((context, index) {
-        return null;
-      }, childCount: 10),
-    );
-  }
-
-  Widget _gridCharacters() {
-    return SliverGrid(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        mainAxisSpacing: 5,
-        crossAxisCount: 1,
-        mainAxisExtent: 70,
-      ),
-      delegate: SliverChildBuilderDelegate((context, index) {
         return Card(
           elevation: 3,
           child: ListTile(
-            leading: Icon(Icons.person),
-            title: Text('Character $index'),
-            subtitle: Text('Dungeons and Dragons'),
+            leading: Image.asset(
+              'assets/icons/d&d_5e.jpg',
+              width: 50,
+              height: 50,
+            ),
+            // Icon(Icons.person),
+            title: Text('Personagem $index'),
+            subtitle: Text('Dungeons and Dragons 5° Edição'),
           ),
         );
       }, childCount: 100),
