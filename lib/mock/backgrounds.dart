@@ -1,0 +1,15 @@
+final backgrounds = [
+  'Acólito ',
+  'Artesão de Guilda',
+  'Artista',
+  'Charlatão ',
+  'Criminoso ',
+  'Eremita',
+  'Forasteiro',
+  'Herói do Povo',
+  'Marinheiro',
+  'Nobre',
+  'Orfão',
+  'Sábio',
+  'Soldado',
+];

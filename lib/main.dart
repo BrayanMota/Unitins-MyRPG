@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_rpg/home_page.dart';
+import 'package:my_rpg/character/token/views/character_features.dart';
 
 void main() => runApp(const UnitinsMyRpg());
 
@@ -22,6 +22,6 @@ class UnitinsMyRpgStatelessWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomePage();
+    return const CharacterFeatures();
   }
 }
