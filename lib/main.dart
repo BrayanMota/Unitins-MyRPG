@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_rpg/character/token/views/character_features.dart';
-import 'package:my_rpg/user/views/list.dart';
 
 void main() => runApp(const UnitinsMyRpg());
 
