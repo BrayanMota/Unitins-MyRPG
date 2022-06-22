@@ -3,7 +3,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:my_rpg/character/models/character.dart';
 import 'package:my_rpg/character/token/models/token.dart';
 import 'package:my_rpg/mock/alignments.dart';
 import 'package:my_rpg/mock/backgrounds.dart';
@@ -12,6 +11,7 @@ import 'package:my_rpg/utils/widget.dart';
 import 'package:my_rpg/mock/classes.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
+import '../../models/character.dart';
 import '../models/features.dart';
 
 class CharacterFeatures extends StatefulWidget {
@@ -45,10 +45,10 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
   Widget _buildBody() {
     return CustomScrollView(
       slivers: [
-        CustomSliverAppBar(
-          textTopSliver: 'Características',
-          centerTitle: true,
-        ),
+        // CustomSliverAppBar(
+        //   textTopSliver: 'Características',
+        //   centerTitle: true,
+        // ),
         SliverPadding(
           padding: EdgeInsets.all(20),
           sliver: _features(),

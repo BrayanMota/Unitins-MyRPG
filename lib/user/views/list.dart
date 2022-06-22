@@ -1,7 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:my_rpg/character/token/views/character_features.dart';
+import 'package:my_rpg/character/token/views/index.dart';
 import 'package:my_rpg/utils/widget.dart';
 
 class ListCharacters extends StatefulWidget {
@@ -24,7 +23,7 @@ class _ListCharactersState extends State<ListCharacters> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CharacterFeatures(),
+                builder: (context) => IndexPage(),
               ),
             );
           },
@@ -58,8 +57,16 @@ class _ListCharactersState extends State<ListCharacters> {
               height: 50,
             ),
             // Icon(Icons.person),
-            title: Text('Personagem $index'),
+            title: Text('Personagem ${index + 1}'),
             subtitle: Text('Dungeons and Dragons 5° Edição'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => IndexPage(),
+                ),
+              );
+            },
           ),
         );
       }, childCount: 100),

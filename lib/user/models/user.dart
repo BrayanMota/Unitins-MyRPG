@@ -1,4 +1,4 @@
-import 'package:my_rpg/character/models/character.dart';
+import '../../character/models/character.dart';
 
 class UserModel {
   String id;

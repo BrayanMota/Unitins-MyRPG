@@ -1,4 +1,5 @@
-import 'package:my_rpg/character/model/attribute_model.dart';
+
+import 'attribute_model.dart';
 
 class AttributeRepository {
   List<AttributeModel> findAll() {

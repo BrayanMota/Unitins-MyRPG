@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:my_rpg/character/model/attribute_repository.dart';
+
 import 'package:my_rpg/character/view_model/attribute_view_model.dart';
 
-class CharacterAttributesTab extends StatefulWidget {
+import '../../models/attribute_repository.dart';
+
+class CharacterAttributes extends StatefulWidget {
   final AttributeViewModel attributeViewModel =
       AttributeViewModel(repository: AttributeRepository());
 
-  CharacterAttributesTab({Key? key}) : super(key: key);
+  CharacterAttributes({Key? key}) : super(key: key);
 
   @override
-  State<CharacterAttributesTab> createState() => _CharacterAttributesTabState();
+  State<CharacterAttributes> createState() => _CharacterAttributesState();
 }
 
-class _CharacterAttributesTabState extends State<CharacterAttributesTab> {
+class _CharacterAttributesState extends State<CharacterAttributes> {
   @override
   Widget build(BuildContext context) {
     return GridView.count(

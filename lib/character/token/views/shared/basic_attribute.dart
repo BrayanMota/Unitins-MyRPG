@@ -1,8 +1,10 @@
 // ignore_for_file: use_key_in_widget_constructors, must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:my_rpg/character/model/attribute_model.dart';
+
 import 'package:my_rpg/character/service/attribute_service.dart';
+
+import '../../../models/attribute_model.dart';
 
 class BasicAttribute extends StatefulWidget {
   BasicAttribute({Key? key, required this.attributeModel}) : super(key: key);
@@ -37,7 +39,7 @@ class _BasicAttributeState extends State<BasicAttribute> {
               Text(
                 widget.attributeModel.name,
                 style: const TextStyle(
-                  fontSize: 28.0,
+                  fontSize: 25.0,
                   fontStyle: FontStyle.normal,
                   color: Colors.black,
                 ),
@@ -89,7 +91,7 @@ class _BasicAttributeState extends State<BasicAttribute> {
                 children: [
                   FloatingActionButton(
                     child: const Icon(Icons.remove),
-                    backgroundColor: Colors.blueAccent,
+                    backgroundColor: Colors.black87,
                     onPressed: _decrementAttributeValue,
                   ),
                   AttributeValue(
@@ -97,7 +99,7 @@ class _BasicAttributeState extends State<BasicAttribute> {
                   ),
                   FloatingActionButton(
                     child: const Icon(Icons.add),
-                    backgroundColor: Colors.blueAccent,
+                    backgroundColor: Colors.black87,
                     onPressed: _incrementAttributeValue,
                   )
                 ],

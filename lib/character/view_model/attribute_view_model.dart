@@ -1,8 +1,10 @@
-import 'package:my_rpg/character/model/attribute_repository.dart';
-import 'package:my_rpg/character/view/shared/basic_attribute.dart';
+import '../models/attribute_repository.dart';
+import '../token/views/shared/basic_attribute.dart';
 
 class AttributeViewModel {
-  AttributeViewModel({required this.repository});
+  AttributeViewModel({
+    required this.repository,
+  });
 
   final AttributeRepository repository;
   List<BasicAttribute> basicAttributes = [];
