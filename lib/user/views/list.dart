@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_rpg/character/token/views/character_features.dart';
-import 'package:my_rpg/character/token/views/index.dart';
+import 'package:my_rpg/utils/drawer.dart';
 import 'package:my_rpg/utils/widget.dart';
+
+import '../../character/views/index.dart';
 
 class ListCharacters extends StatefulWidget {
   const ListCharacters({Key? key}) : super(key: key);
@@ -15,20 +16,7 @@ class _ListCharactersState extends State<ListCharacters> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _buildBody(),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => IndexPage(),
-              ),
-            );
-          },
-        ),
-      ),
+      drawer: AppDrawer(),
     );
   }
 

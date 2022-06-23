@@ -37,6 +37,8 @@ dependencies:
   font_awesome_flutter: ^10.1.0 # Lib para usar os componentes do font_awesome
   dio: ^4.0.6 # Lib para comunicações de api
   dropdown_search: ^5.0.2 # Lib para usar um componente personalizado de dropdown
+  provider: ^5.0.0
+  http: ^0.13.3
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,5 @@
 import '../models/attribute_repository.dart';
-import '../token/views/shared/basic_attribute.dart';
+import '../views/shared/basic_attribute.dart';
 
 class AttributeViewModel {
   AttributeViewModel({

@@ -1,13 +1,13 @@
-import 'package:my_rpg/character/token/models/token.dart';
+import 'feature.dart';
 
 class CharacterModel {
   String? id;
   String? name;
-  final TokenModel? tokenModel;
+  final FeatureModel? featureModel;
 
   CharacterModel({
     this.id,
     this.name,
-    this.tokenModel,
+    this.featureModel,
   });
 }

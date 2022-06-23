@@ -242,7 +242,6 @@ class CustomAutoComplete extends StatelessWidget {
 * Widget de lista
 */
 
-
 /// Class para renderizar o Widget do ListView Customizado
 class CustomListTile extends StatelessWidget {
   final String title;

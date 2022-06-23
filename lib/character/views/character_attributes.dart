@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:my_rpg/character/view_model/attribute_view_model.dart';
 
-import '../../models/attribute_repository.dart';
+import '../models/attribute_repository.dart';
 
 class CharacterAttributes extends StatefulWidget {
   final AttributeViewModel attributeViewModel =

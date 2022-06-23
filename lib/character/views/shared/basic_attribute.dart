@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:my_rpg/character/service/attribute_service.dart';
 
-import '../../../models/attribute_model.dart';
+import '../../models/attribute.dart';
 
 class BasicAttribute extends StatefulWidget {
   BasicAttribute({Key? key, required this.attributeModel}) : super(key: key);

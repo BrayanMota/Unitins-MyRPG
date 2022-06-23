@@ -1,18 +1,13 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:my_rpg/character/token/models/token.dart';
 import 'package:my_rpg/mock/alignments.dart';
 import 'package:my_rpg/mock/backgrounds.dart';
 import 'package:my_rpg/mock/races.dart';
-import 'package:my_rpg/utils/widget.dart';
 import 'package:my_rpg/mock/classes.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
-import '../../models/character.dart';
-import '../models/features.dart';
+import '../models/character.dart';
+import '../models/feature.dart';
 
 class CharacterFeatures extends StatefulWidget {
   const CharacterFeatures({Key? key}) : super(key: key);
@@ -191,15 +186,13 @@ class _CharacterFeaturesState extends State<CharacterFeatures> {
                         if (_formKey.currentState!.validate()) {
                           characterModel = CharacterModel(
                             name: _nameController.text,
-                            tokenModel: TokenModel(
-                              featureModel: FeatureModel(
-                                className: _classController.text,
-                                level: int.parse(_levelController.text),
-                                race: _raceController.text,
-                                subRace: _subRaceController.text,
-                                background: _backgroundController.text,
-                                alignment: _alignmentController.text,
-                              ),
+                            featureModel: FeatureModel(
+                              className: _classController.text,
+                              level: int.parse(_levelController.text),
+                              race: _raceController.text,
+                              subRace: _subRaceController.text,
+                              background: _backgroundController.text,
+                              alignment: _alignmentController.text,
                             ),
                           );
                         }

@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import 'user/views/list.dart';
+import 'auth/models/auth.dart';
+import 'auth/views/index.dart';
 
-void main() => runApp(const UnitinsMyRpg());
-
-class UnitinsMyRpg extends StatelessWidget {
-  const UnitinsMyRpg({Key? key}) : super(key: key);
-
-  static const String _title = 'Unitins RPG App';
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: _title,
-      home: UnitinsMyRpgStatelessWidget(),
-    );
-  }
+void main() {
+  runApp(MyApp());
 }
 
-class UnitinsMyRpgStatelessWidget extends StatelessWidget {
-  const UnitinsMyRpgStatelessWidget({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // return const CharacterFeatures();
-    return const ListCharacters();
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => Auth(),
+        ),
+      ],
+      child: MaterialApp(
+        home: AuthOrHomePage(),
+      ),
+    );
   }
 }

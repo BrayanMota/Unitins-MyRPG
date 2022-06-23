@@ -1,5 +1,5 @@
 
-import 'attribute_model.dart';
+import 'attribute.dart';
 
 class AttributeRepository {
   List<AttributeModel> findAll() {
