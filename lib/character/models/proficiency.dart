@@ -1,3 +1,9 @@
 class ProficiencyModel {
-  String name = '';
+  String? id;
+  String? name;
+
+  ProficiencyModel({
+    this.id,
+    this.name,
+  });
 }

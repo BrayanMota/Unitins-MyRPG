@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'character_attributes.dart';
-import 'character_features.dart';
-import 'character_skills.dart';
+import 'attributes.dart';
+import 'features.dart';
+import 'skills.dart';
 
 class IndexPage extends StatefulWidget {
   const IndexPage({Key? key}) : super(key: key);
