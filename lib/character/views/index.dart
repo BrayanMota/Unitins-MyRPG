@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'attributes.dart';
 import 'features.dart';
+import 'more_features.dart';
 import 'skills.dart';
 
 class IndexPage extends StatefulWidget {
@@ -17,7 +18,7 @@ class _IndexPageState extends State<IndexPage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 0,
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           // elevation: 6.0,
@@ -31,6 +32,9 @@ class _IndexPageState extends State<IndexPage> {
               Tab(
                 icon: FaIcon(FontAwesomeIcons.userShield),
               ),
+               Tab(
+                icon: FaIcon(FontAwesomeIcons.userPlus),
+              ),
               // Tab(
               //   icon: FaIcon(FontAwesomeIcons.wandSparkles),
               // ),
@@ -41,6 +45,7 @@ class _IndexPageState extends State<IndexPage> {
           children: <Widget>[
             CharacterFeatures(),
             CharacterAttributes(),
+            CharacterMoreFeatures(),
             // const ItemsListTab(),
           ],
         ),
